@@ -163,8 +163,3 @@ while sankari.rohkeus > 0:
 
 time.sleep(1.5)
 print("%s herää sängystään hikisenä - onneksi se oli vain unta!" % sankari.nimi)
-
-    
-
-         
-         
