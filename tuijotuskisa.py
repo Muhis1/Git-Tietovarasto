@@ -164,13 +164,6 @@ while sankari.rohkeus > 0:
 time.sleep(1.5)
 print("%s herää sängystään hikisenä - onneksi se oli vain unta!" % sankari.nimi)
 
-class sankari: 
-    def __init__(self, sijainti, suunta, nopeus= 2.0):
-        self.sijainti = sijainti
-        self.suunta = suunta
-        aelf.nopeus = nopeus
-    def tulosta_Tiedot(self):        
-
     
 
          
