@@ -67,8 +67,8 @@ class Sankari:
         self.katseen_voima = random.randint(1, 10)
         
     def arvo_hurraus(self):
-        sanat = ["pallo", "kasi", "futis", "maali", "kentta"]
-        return random.choice(sanat)
+        merkkijono= ["pallo", "kasi", "futis", "maali", "kentta"]
+        return random.choice(merkkijono)
 
 
 def hurraa(olio):
