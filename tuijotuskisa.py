@@ -70,6 +70,50 @@ class Sankari:
         sanat= ["pallo", "kasi", "futis", "maali", "kentta"]
         return random.choice(sanat)
 
+    
+class Luolapeikko(Peikko):
+    NIMITAVUT = ("RTRE", "GRDGD", "ERE", "DSF", "WAESWAE", "SAD", "RTR", "DSA", "RWR", "GFH")
+    RIEMUTAVUT = ("DFF", "XCV", "SAX", "QWE", "YTU", "UYJ", "GFH", "CXV", "ASXAS", "SAXAS", "SXA")
+
+     def __init__(self):
+        """Konstruktori."""
+        self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
+        super().__init__(3, 7)
+
+
+    def _arvo_sanat(self, tavut, n, erotin, p=0.5):
+        osat = random.choices(tavut, k=random.randint(2, n))
+        sanat = osat[0]
+        for osa in osat[1:]:
+            if random.random() < p:
+                sanat += erotin + osa
+            else:
+                sanat += osa.lower()
+        return sanat
+     def arvo_hurraus(self):
+             return self._arvo_sanat(self.RIEMUTAVUT, 8, " ", 0.7)
+
+            
+class Vuorenpeikko(Peikko):
+    NIMITAVUT = ("WQEE", "WQE", "FEE", "SDFS", "DFF", "DF", "ERR", "DFG", "CXV", "AXA")
+    RIEMUTAVUT = ("ASD", "SDF", "FV", "TH", "JJ", "HJK", "VBMN", "XCV", "FGY", "NHGJ", "KJL")
+    def __init__(self):
+        """Konstruktori."""
+        self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
+        self.rohkeus = random.randint(3, 4)
+        self.katseen_voima = random.randint(3, 8)
+    def _arvo_sanat(self, tavut, n, erotin, p=0.5):
+         osat = random.choices(tavut, k=random.randint(2, n))
+        sanat = osat[0]
+        for osa in osat[1:]:
+            if random.random() < p:
+                sanat += erotin + osa
+            else:
+                sanat += osa.lower()
+        return sanat
+    def arvo_hurraus(self):
+         return self._arvo_sanat(self.RIEMUTAVUT, 8, " ", 0.7)
+        
 
 def hurraa(olio):
     """Tulostaa satunnaisen hurrauksen annetulle oliolle.
