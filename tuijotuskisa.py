@@ -69,6 +69,16 @@ class Sankari:
     def arvo_hurraus(self):
         sanat= ["pallo", "kasi", "futis", "maali", "kentta"]
         return random.choice(sanat)
+ 
+
+class Sankari(Olento):
+     def __init__(self, nimi, rohkeus, katseen_voima):
+            self.nimi = nimi
+            super().__init__(rohkeus, katseen_voima)
+     def arvo_hurraus(self):
+        HURRAUKSET = [fdggh!", "fdhfd!", "sdfds!", "sads!", "asdsa!!"]
+        return random.choice(HURRAUKSET)
+            
 
     
 class Luolapeikko(Peikko):
