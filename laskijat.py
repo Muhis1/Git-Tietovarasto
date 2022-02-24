@@ -36,20 +36,35 @@ class Laskija:
 
 ### Lisää MonenLaskija ja argumenttien_tulostaja tähän.
 class MonenLaskija(Laskija):
+    
     def summaa(self, *a):
+        """Laskee summat ja palauttaa lopputuloksen for-loopista.
+        """
         summa = 0
         for luku in a:
             summa += luku
         return summa
     
     def kerro(self, *a):
+        """Laskee tulon ja palauttaa lopputuloksen for-loopista.
+        """
         kerro = 1
         for luku in a:
             kerro *= luku
         return kerro
     
     def argumenttien_tulostaja(**a):
-        for avainsana, arvo in a.items():
+        """Funktio joka lisää sanakirjaan avaimet ja arvot
+        Tulostetaan lopussa missä kerrotaan avain ja sen arvo.
+        :ivar a: Sanakirja, jossa on avaimet ja arvot.
+    :type a: dict
+    :ivar avainsana: Avain tähän
+    :type avainsana: str
+    :ivar arvo: Arvo tähän
+    :type arvo: str
+    """
+       
+       for avainsana, arvo in a.items():
         print(f'Argumentin "{avainsana}" arvo on {arvo}.')
 
 
