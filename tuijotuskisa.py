@@ -89,10 +89,16 @@ class Sankari:
  
 
 class Sankari(Olento):
+     """Luokka, joka kuvaa sankarin olento"""
      def __init__(self, nimi, rohkeus, katseen_voima):
             self.nimi = nimi
             super().__init__(rohkeus, katseen_voima)
      def arvo_hurraus(self):
+        """Palauttaa satunnaisen hurraushuudahduksen.
+
+        :return: hurraava huudahdus
+        :rtype: str
+        """
         HURRAUKSET = [fdggh!", "fdhfd!", "sdfds!", "sads!", "asdsa!!"]
         return random.choice(HURRAUKSET)
             
