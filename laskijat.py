@@ -36,6 +36,11 @@ class Laskija:
 
 ### Lisää MonenLaskija ja argumenttien_tulostaja tähän.
 class MonenLaskija(Laskija):
+     """Luokka, joka toteuttaa eri laskutoimituksia.
+    Julkiset metodit:
+        summaa(Union[int, float])
+        kerro(Union[int, float])
+    """
     
     def summaa(self, *a):
         """Laskee summat ja palauttaa lopputuloksen for-loopista.
