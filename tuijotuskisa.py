@@ -59,14 +59,31 @@ class Peikko:
 
 ### Kirjoita luokka Sankari tähän.
 class Sankari:
+    """Luokka, joka kuvaa Sankarin.
 
+    :ivar nimi: Sankarin nimi
+    :type nimi: str
+    :ivar rohkeus: Sankarin rohkeus, mikä arvotaan
+    :type rohkeus: int
+    :ivar katseen_voima: Sankarin katseen voima
+    :type katseen_voima: int
+
+    Julkiset metodit
+        arvo_hurraus()
+    """
 
     def __init__(self,nimi):
+        """arvoo rohkeuden ja hurrauksen voiman"""
         self.nimi = nimi
         self.rohkeus = random.randint(1, 10)
         self.katseen_voima = random.randint(1, 10)
         
     def arvo_hurraus(self):
+         """Palauttaa satunnaisen hurraushuudahduksen.
+
+        :return: hurraava huudahdus
+        :rtype: str
+        """
         sanat= ["pallo", "kasi", "futis", "maali", "kentta"]
         return random.choice(sanat)
  
@@ -82,6 +99,18 @@ class Sankari(Olento):
 
     
 class Luolapeikko(Peikko):
+       """Luokka, joka kuvaa Luolapeikon.
+
+    :ivar nimi: peikon nimi, arvotaan
+    :type nimi: str
+    :ivar rohkeus: peikon rohkeus, arvotaan
+    :type rohkeus: int
+    :ivar katseen_voima: peikon katseen voimakkuus, arvotaan
+    :type katseen_voima: int
+
+    Julkiset metodit
+        arvo_hurraus()
+    """                
     NIMITAVUT = ("RTRE", "GRDGD", "ERE", "DSF", "WAESWAE", "SAD", "RTR", "DSA", "RWR", "GFH")
     RIEMUTAVUT = ("DFF", "XCV", "SAX", "QWE", "YTU", "UYJ", "GFH", "CXV", "ASXAS", "SAXAS", "SXA")
 
@@ -92,6 +121,19 @@ class Luolapeikko(Peikko):
 
 
     def _arvo_sanat(self, tavut, n, erotin, p=0.5):
+           """Muodostaa satunnaisen tekstin annetuista tavuista.
+
+        :param tavut: ne tavut, joita palautettava teksti voi sisältää
+        :type tavut: Union[list[str], tuple[str]]
+        :param n: mukaan poimittavien tavujen maksimimäärä
+        :type n: int
+        :param erotin: tavujen väliin satunnaisesti laitettava merkki
+        :type erotin: str
+        :param p: todennäköisyys lisätä erotin tavujen väliin (oletus 0.5)
+        :type p: float
+        :return: satunnainen teksti
+        :rtype: str
+        """           
         osat = random.choices(tavut, k=random.randint(2, n))
         sanat = osat[0]
         for osa in osat[1:]:
@@ -101,10 +143,27 @@ class Luolapeikko(Peikko):
                 sanat += osa.lower()
         return sanat
      def arvo_hurraus(self):
+           """Palauttaa satunnaisen hurraushuudahduksen.
+
+        :return: hurraava huudahdus
+        :rtype: str
+        """           
              return self._arvo_sanat(self.RIEMUTAVUT, 8, " ", 0.7)
 
             
 class Vuorenpeikko(Peikko):
+       """Luokka, joka kuvaa Luolapeikon.
+
+    :ivar nimi: peikon nimi, arvotaan
+    :type nimi: str
+    :ivar rohkeus: peikon rohkeus, arvotaan
+    :type rohkeus: int
+    :ivar katseen_voima: peikon katseen voimakkuus, arvotaan
+    :type katseen_voima: int
+
+    Julkiset metodit
+        arvo_hurraus()
+    """                
     NIMITAVUT = ("WQEE", "WQE", "FEE", "SDFS", "DFF", "DF", "ERR", "DFG", "CXV", "AXA")
     RIEMUTAVUT = ("ASD", "SDF", "FV", "TH", "JJ", "HJK", "VBMN", "XCV", "FGY", "NHGJ", "KJL")
     def __init__(self):
@@ -113,6 +172,19 @@ class Vuorenpeikko(Peikko):
         self.rohkeus = random.randint(3, 4)
         self.katseen_voima = random.randint(3, 8)
     def _arvo_sanat(self, tavut, n, erotin, p=0.5):
+           """Muodostaa satunnaisen tekstin annetuista tavuista.
+
+        :param tavut: ne tavut, joita palautettava teksti voi sisältää
+        :type tavut: Union[list[str], tuple[str]]
+        :param n: mukaan poimittavien tavujen maksimimäärä
+        :type n: int
+        :param erotin: tavujen väliin satunnaisesti laitettava merkki
+        :type erotin: str
+        :param p: todennäköisyys lisätä erotin tavujen väliin (oletus 0.5)
+        :type p: float
+        :return: satunnainen teksti
+        :rtype: str
+        """            
          osat = random.choices(tavut, k=random.randint(2, n))
         sanat = osat[0]
         for osa in osat[1:]:
@@ -122,6 +194,11 @@ class Vuorenpeikko(Peikko):
                 sanat += osa.lower()
         return sanat
     def arvo_hurraus(self):
+          """Palauttaa satunnaisen hurraushuudahduksen.
+
+        :return: hurraava huudahdus
+        :rtype: str
+        """             
          return self._arvo_sanat(self.RIEMUTAVUT, 8, " ", 0.7)
         
 
