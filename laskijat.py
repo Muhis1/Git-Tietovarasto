@@ -36,41 +36,39 @@ class Laskija:
 
 ### Lisää MonenLaskija ja argumenttien_tulostaja tähän.
 class MonenLaskija(Laskija):
-     """Luokka, joka toteuttaa eri laskutoimituksia.
-    Julkiset metodit:
-        summaa(Union[int, float])
-        kerro(Union[int, float])
-    """
+     """Luokka, joka toteuttaa eri laskutoimituksia mikä tahansa määrälle luvuila."""
+
+   
     
-    def summaa(self, *a):
-        """Laskee summat ja palauttaa lopputuloksen for-loopista.
+    def summaa(self, *luvut):
+         """Palauttaa annetttujen lukujen summan.
+
+        :param luvut: summattavat luvut
+        :type luvut: tuple[Union[int, float]]
+        :return: lukujen summa
+        :rtype: Union[int, float]
         """
-        summa = 0
-        for luku in a:
-            summa += luku
-        return summa
+       return sum(luvut)
     
-    def kerro(self, *a):
-        """Laskee tulon ja palauttaa lopputuloksen for-loopista.
+    def kerro(self, *luvut):
+        """Palauttaa annetttujen lukujen tulon.
+
+        :param luvut: tulojen ensimmäinen luku
+        :type luvut: tuple[Union[int, float]]
+        :return: lukujen tulo
+        :rtype: Union[int, float]
         """
-        kerro = 1
-        for luku in a:
-            kerro *= luku
-        return kerro
     
-    def argumenttien_tulostaja(**a):
-        """Funktio joka lisää sanakirjaan avaimet ja arvot
-        Tulostetaan lopussa missä kerrotaan avain ja sen arvo.
-        :ivar a: Sanakirja, jossa on avaimet ja arvot.
-    :type a: dict
-    :ivar avainsana: Avain tähän
-    :type avainsana: str
-    :ivar arvo: Arvo tähän
-    :type arvo: str
-    """
+        tulo = 1
+        for luku in luvut:
+            tulo *= luku
+        return tulo
+    
+    def argumenttien_tulostaja(**purettavat):
+      """Tulostaa annetut tiedot."""
        
-       for avainsana, arvo in a.items():
-        print(f'Argumentin "{avainsana}" arvo on {arvo}.')
+       for k, v in purettavat.items():
+        print(f'Argumentin "{k}" arvo on {v}.')
 
 
 
